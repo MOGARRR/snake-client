@@ -8,6 +8,7 @@ const connect = function () {
   conn.on('connect', () => { // on connection it will log success and users name
     console.log('Successfully connected to game server!');
     conn.write('Name: ABA');
+    // conn.write('Move: up');
   });
 
   // interpret incoming data as text
