@@ -1,14 +1,14 @@
+const {IP,PORT} = require('./constants');
 const net = require("net"); // grabs npm net package
 const connect = function () {
   const conn = net.createConnection({ // creates client connection object
-    host: 'localhost',
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
 
   conn.on('connect', () => { // on connection it will log success and users name
     console.log('Successfully connected to game server!');
     conn.write('Name: ABA');
-    // conn.write('Move: up');
   });
 
   // interpret incoming data as text

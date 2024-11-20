@@ -1,4 +1,5 @@
 const net = require("net");
+const {movement,messages} = require('./constants');
 let connection;
 const setupInput = function (conn) {
   connection = conn;
@@ -11,11 +12,9 @@ const setupInput = function (conn) {
 };
 
 const handleUserInput = function(key){
-  const movement = {w: "Move: up", a: "Move: left", s: "Move: down", d: "Move: right"};
-  if (movement[key]){
-    connection.write(movement[key]);
+  if (movement[key]){ // if key is truthy 
+    connection.write(movement[key]); // send key to server aka move
   }
-  const messages = {h:'*Hissy fit noises*', j:'hissterical', k: 'boop', i: 'sssssorry'};
   if (messages[key]){
     connection.write(`Say: ${messages[key]}`);
   }
