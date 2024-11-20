@@ -15,6 +15,10 @@ const handleUserInput = function(key){
   if (movement[key]){
     connection.write(movement[key]);
   }
+  const messages = {h:'*Hissy fit noises*', j:'hissterical', k: 'boop', i: 'sssssorry'};
+  if (messages[key]){
+    connection.write(`Say: ${messages[key]}`);
+  }
   if(key === "\u0003"){
     process.exit();
   }
