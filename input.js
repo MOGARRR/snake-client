@@ -1,4 +1,3 @@
-const net = require("net");
 const {movement,messages} = require('./constants');
 let connection;
 const setupInput = function (conn) {
@@ -16,9 +15,9 @@ const handleUserInput = function(key){
     connection.write(movement[key]); // send key to server aka move
   }
   if (messages[key]){
-    connection.write(`Say: ${messages[key]}`);
+    connection.write(`Say: ${messages[key]}`); // same as above but binded to messages
   }
-  if(key === "\u0003"){
+  if(key === "\u0003"){ // allows user to terminate terminal
     process.exit();
   }
 };
