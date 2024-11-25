@@ -3,11 +3,11 @@ const net = require("net"); // grabs npm net package
 
 
 const connect = function() {
-  const conn1 = net.createConnection({ // creates client connection object to connext
+  const conn1 = net.createConnection({ // creates client connection object to for server inputs
     host: IP,
     port: PORT1
   });
-  const conn2 = net.createConnection({ // creates client for open server to get multiplayer info
+  const conn2 = net.createConnection({ // creates client connection object for server messages
     host: IP,
     port: PORT2,
   });
@@ -22,11 +22,11 @@ const connect = function() {
     console.log("Server:",data);
   });
 
-  conn2.setEncoding('utf8'); // same as above but for second server
+  conn2.setEncoding('utf8');
   conn2.on('data', (data) => {
     console.log('Server:', data);
   });
 
-  return conn1; // only returns object for inputs. conn2 just needs to get data from server, not send any.
+  return conn1; // returns only conn1 so that terminal inputs can be read by the server
 };
 module.exports = connect;
